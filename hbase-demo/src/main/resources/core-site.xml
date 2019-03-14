@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<property>
+		<name>fs.defaultFS</name>
+		<value>hdfs://bi/</value>
+		<!-- <value>hdfs://zhidun01:9000</value> --> <!-- uat环境, 没有集群 -->
+	</property>
+	<property>
+		<name>hadoop.tmp.dir</name>
+		<value>/home/dinpay/data/hdpdata/</value>
+	</property>					
+	<property>
+		<name>ha.zookeeper.quorum</name>
+		<value>zk-datanode-01:2181,zk-datanode-02:2181,zk-datanode-03:2181</value>  <!-- 开发环境zk -->
+		<!-- <value>zk-spark-01:2181,zk-spark-02:2181,zk-spark-03:2181</value> -->	<!-- sit环境zk -->
+		<!-- <value>zhidun01:2181,zhidun02:2181,zhidun03:2181</value> --><!-- uat环境zk -->
+	</property>
+        <property>
+    	        <name>hadoop.proxyuser.dinpay.hosts</name>
+                <value>*</value>
+         </property>
+         <property>
+                <name>hadoop.proxyuser.dinpay.groups</name>
+                <value>*</value>
+         </property>
+	 	<property>
+                 <name>io.compression.codecs</name>
+                 <value>org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.BZip2Codec,org.apache.hadoop.io.compress.SnappyCodec</value>
+         </property>
+	<property>
+                <name>ipc.client.connect.max.retries</name>
+                <value>100</value>
+        </property>
+        <property>
+                <name>ipc.client.connect.retry.interval</name>
+                <value>10000</value>
+        </property>
+        <property>
+                <name>dfs.ha.fencing.ssh.connect-timeout</name>
+                <value>60000</value>
+        </property>
+        <property>
+                <name>ha.failover-controller.cli-check.rpc-timeout.ms</name>
+                <value>60000</value>
+        </property>
+        <property>
+                <name>ipc.client.connect.timeout</name>
+                <value>60000</value>
+        </property>
+</configuration>

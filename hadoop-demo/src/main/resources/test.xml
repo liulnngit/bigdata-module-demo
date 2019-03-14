@@ -1,0 +1,7 @@
+<configuration>
+<!-- 指定hdfs的nameservice为ns1 -->
+<property>
+<name>xxx.uu</name>
+<value>yyyyyyyy</value>
+</property>
+</configuration>
